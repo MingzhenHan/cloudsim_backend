@@ -39,4 +39,11 @@ public class InteractiveController {
         Graph graph1 = BackendFunction.storeResult(graph,result);
         return graph1;
     }
+
+    @GetMapping("/getTable")
+    public Table[] getTable(String name,int algorithm) throws ParserConfigurationException, IOException, SAXException {
+        double result[][] = WorkflowSimBasicExample1.mySimulation(name,algorithm);
+        Table [] tables = BackendFunction.resultToTable(result);
+        return tables;
+    }
 }

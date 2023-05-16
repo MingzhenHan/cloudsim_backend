@@ -1,9 +1,6 @@
 package com.example.cloudsim_backend.service;
 
-import com.example.cloudsim_backend.controller.Conf;
-import com.example.cloudsim_backend.controller.Edge;
-import com.example.cloudsim_backend.controller.Graph;
-import com.example.cloudsim_backend.controller.Node;
+import com.example.cloudsim_backend.controller.*;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -65,9 +62,9 @@ public class BackendFunction {
         });
 
         Node[] nodes = new Node [result.length-1];
+        DecimalFormat df = new DecimalFormat("0.##");
         for(int i=0;i< nodes.length;i++){
             nodes[i]=new Node();
-            DecimalFormat df = new DecimalFormat("0.##");
             nodes[i].setId(df.format(result[i][0]));
             nodes[i].setName(df.format(result[i][0]));
 
@@ -89,5 +86,21 @@ public class BackendFunction {
         }
         graph.setNodes(nodes);
         return graph;
+    }
+
+    public static Table[] resultToTable(double [][] result){
+        Table[] tables = new Table[result.length-1];
+        DecimalFormat df = new DecimalFormat("0.##");
+        for(int i=0;i<result.length-1;i++)
+        {
+            tables[i] = new Table();
+            tables[i].setJobid(df.format(result[i+1][0]));
+            tables[i].setStatus("SUCCESS");
+            tables[i].setVmid(df.format(result[i+1][3]));
+            tables[i].setTime(String.valueOf(result[i][4]));
+            tables[i].setStarttime(String.valueOf(result[i][5]));
+            tables[i].setFinishtime(String.valueOf(result[i][6]));
+        }
+        return tables;
     }
 }
