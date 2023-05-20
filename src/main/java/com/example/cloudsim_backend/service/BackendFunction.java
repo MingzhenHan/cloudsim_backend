@@ -97,9 +97,9 @@ public class BackendFunction {
             tables[i].setJobid(df.format(result[i+1][0]));
             tables[i].setStatus("SUCCESS");
             tables[i].setVmid(df.format(result[i+1][3]));
-            tables[i].setTime(String.valueOf(result[i][4]));
-            tables[i].setStarttime(String.valueOf(result[i][5]));
-            tables[i].setFinishtime(String.valueOf(result[i][6]));
+            tables[i].setTime(String.valueOf(result[i+1][4]));
+            tables[i].setStarttime(String.valueOf(result[i+1][5]));
+            tables[i].setFinishtime(String.valueOf(result[i+1][6]));
         }
         return tables;
     }
