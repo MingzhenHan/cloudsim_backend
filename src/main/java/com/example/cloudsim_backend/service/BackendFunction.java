@@ -79,9 +79,9 @@ public class BackendFunction {
             confs[2].setLabel("Time");
             confs[2].setValue(String.valueOf(result[i][4]));
             confs[3].setLabel("Start time");
-            confs[3].setValue(String.valueOf(result[i][5]));
+            confs[3].setValue(String.format("%.2f",result[i+1][5]-0.21));
             confs[4].setLabel("Finish time");
-            confs[4].setValue(String.valueOf(result[i][6]));
+            confs[4].setValue(String.format("%.2f",result[i+1][6]-0.21));
             nodes[i].setConf(confs);
         }
         graph.setNodes(nodes);
@@ -98,8 +98,8 @@ public class BackendFunction {
             tables[i].setStatus("SUCCESS");
             tables[i].setVmid(df.format(result[i+1][3]));
             tables[i].setTime(String.valueOf(result[i+1][4]));
-            tables[i].setStarttime(String.valueOf(result[i+1][5]));
-            tables[i].setFinishtime(String.valueOf(result[i+1][6]));
+            tables[i].setStarttime(String.format("%.2f",result[i+1][5]-0.21));
+            tables[i].setFinishtime(String.format("%.2f",result[i+1][6]-0.21));
         }
         return tables;
     }
