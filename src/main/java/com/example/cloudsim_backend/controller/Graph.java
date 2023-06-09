@@ -1,22 +1,22 @@
 package com.example.cloudsim_backend.controller;
 
 public class Graph {
-    private int a;
-    private String b;
+    private Node [] nodes;
+    private Edge [] edges;
 
-    public int getA() {
-        return a;
+    public Node[] getNodes() {
+        return nodes;
     }
 
-    public void setA(int a) {
-        this.a = a;
+    public void setNodes(Node[] nodes) {
+        this.nodes = nodes;
     }
 
-    public String getB() {
-        return b;
+    public Edge[] getEdges() {
+        return edges;
     }
 
-    public void setB(String b) {
-        this.b = b;
+    public void setEdges(Edge[] edges) {
+        this.edges = edges;
     }
 }
