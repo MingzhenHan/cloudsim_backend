@@ -79,9 +79,9 @@ public class BackendFunction {
             confs[2].setLabel("Time");
             confs[2].setValue(String.valueOf(result[i][4]));
             confs[3].setLabel("Start time");
-            confs[3].setValue(String.format("%.2f",result[i+1][5]-0.21));
+            confs[3].setValue(String.format("%.2f",result[i][5]-0.21));
             confs[4].setLabel("Finish time");
-            confs[4].setValue(String.format("%.2f",result[i+1][6]-0.21));
+            confs[4].setValue(String.format("%.2f",result[i][6]-0.21));
             nodes[i].setConf(confs);
         }
         graph.setNodes(nodes);
